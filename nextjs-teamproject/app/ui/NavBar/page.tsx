@@ -1,5 +1,6 @@
-import Link from 'next/link';
+"use client";
 
+import NavBarLinks from "./NavBarLinks";
 
 export default function NavBar() {
 
@@ -12,14 +13,14 @@ export default function NavBar() {
     <div className="list-style-none me-auto flex flex-col ps-0  text-white space-x-10 gap-8">
   
         <div className="list-style-none me-auto flex flex-col ps-0 gap-4 text-white">
-          <Link className="mb-4 lg:mb-0 lg:pe-2 text-[#BBA]" href="/team/ourTeam/crash">Our Teams</Link>
-          <Link className="mb-4 lg:mb-0 lg:pe-2 hover:text-[#BBA] focus:text-[#BB0]" href="/team/ourTeam/sales">Sales</Link>
-          <Link className="mb-4 lg:mb-0 lg:pe-2 hover:text-[#BBA] focus:text-[#BB0]" href="/team/ourTeam/webdesign">Webdesign</Link>
-          <Link className="mb-4 lg:mb-0 lg:pe-2 hover:text-[#BBA] focus:text-[#BB0]" href="/team/ourTeam/development">Development</Link>
+          <NavBarLinks link="/team/ourTeam" content="Our Team" />
+          <NavBarLinks link="/team/ourTeam/sales" content="Sales" />
+          <NavBarLinks link="/team/ourTeam/webdesign" content="Webdesign" />
+          <NavBarLinks link="/team/ourTeam/development" content="Development" />
         </div>
         <div className="list-style-none me-auto flex flex-col ps-0  text-white space-x-10">
-          <Link className="ml-15 mb-4 lg:mb-0 lg:pe-2 hover:text-[#BBA] focus:text-[#BB0]" href="/team/buy">Buy</Link>
-          <Link className="mb-4 lg:mb-0 lg:pe-2 hover:text-[#BBA] focus:text-[#BB0]" href="/team//about">?</Link>
+          <NavBarLinks link="/team/buy" content="Buy" />
+          <NavBarLinks link="/team/about" content="?" />
         </div>
           
     </div>
