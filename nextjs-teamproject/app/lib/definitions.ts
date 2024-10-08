@@ -86,3 +86,18 @@ export type InvoiceForm = {
   amount: number;
   status: 'pending' | 'paid';
 };
+
+export type Teams = {
+  id: string;
+  title: string;
+  heading: string;
+  description: string;
+};
+
+export type Employees = {
+  id: string;
+  team_id: string;
+  image: string;
+  title: string;
+  subtitle: string;
+};

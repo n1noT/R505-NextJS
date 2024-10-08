@@ -6,6 +6,8 @@ import {
   InvoicesTable,
   LatestInvoiceRaw,
   Revenue,
+  Teams,
+  Employees
 } from './definitions';
 import { formatCurrency } from './utils';
 
@@ -213,5 +215,24 @@ export async function fetchFilteredCustomers(query: string) {
   } catch (err) {
     console.error('Database Error:', err);
     throw new Error('Failed to fetch customer table.');
+  }
+}
+
+export async function fetchTeam (team: number) {
+  try {
+    const dataTeam = await sql<Teams>`SELECT * FROM teams WHERE id = ${team}`;
+    const dataEmployees = await sql<Employees>`SELECT * FROM employees WHERE team_id = ${team}`;
+
+    const data = {
+      title: dataTeam.rows[0].title,
+      heading: dataTeam.rows[0].heading,
+      description: dataTeam.rows[0].description,
+      employees: dataEmployees.rows
+    }
+
+    return data;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch team data.');
   }
 }
